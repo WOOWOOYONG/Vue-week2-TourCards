@@ -1,0 +1,1 @@
+import{_ as a,T as s,r as t,o as c,c as d,a as _,F as n,p as r,b as p,d as u}from"./index-3edbbcca.js";const l={components:{TourCards:s}},f=e=>(r("data-v-ba72dcfd"),e=e(),p(),e),i=f(()=>u("h1",null,"About Page",-1));function m(e,b,h,v,x,C){const o=t("TourCards");return c(),d(n,null,[i,_(o)],64)}const T=a(l,[["render",m],["__scopeId","data-v-ba72dcfd"]]);export{T as default};
