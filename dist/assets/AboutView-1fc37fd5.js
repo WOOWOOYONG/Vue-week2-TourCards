@@ -1,1 +1,0 @@
-import{_ as t,T as a,r as s,o as p,c,a as r,F as _,p as n,b as d,d as u}from"./index-b027461d.js";const l={components:{TourWrapper:a}},i=e=>(n("data-v-4595329d"),e=e(),d(),e),m=i(()=>u("h1",null,"About Page",-1));function f(e,h,v,b,x,I){const o=s("TourWrapper");return p(),c(_,null,[m,r(o)],64)}const V=t(l,[["render",f],["__scopeId","data-v-4595329d"]]);export{V as default};

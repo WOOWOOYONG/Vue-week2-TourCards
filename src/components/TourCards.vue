@@ -1,39 +1,50 @@
 <template>
-  <li class="ticketCard">
-    <div class="ticketCard-img">
-      <a href="#">
-        <img :src="tour.imgUrl" alt="pic" />
-      </a>
-      <div class="ticketCard-region">{{ tour.area }}</div>
-      <div class="ticketCard-rank">{{ tour.rate }}</div>
-    </div>
-    <div class="ticketCard-content">
-      <div>
-        <h3>
-          <a href="#" class="ticketCard-name">{{ tour.name }}</a>
-        </h3>
-        <p class="ticketCard-description">{{ tour.description }}</p>
+  <ul v-if="tourData.length > 0">
+    <li class="ticketCard" v-for="tour in tourData" :key="tour.id">
+      <div class="ticketCard-img">
+        <a href="#">
+          <img :src="tour.imgUrl" alt="pic" />
+        </a>
+        <div class="ticketCard-region">{{ tour.area }}</div>
+        <div class="ticketCard-rank">{{ tour.rate }}</div>
       </div>
-      <div class="ticketCard-info">
-        <p class="ticketCard-num">
-          <span><i class="fas fa-exclamation-circle"></i></span>
-          剩下最後 <span> {{ tour.group }} </span> 組
-        </p>
-        <p class="ticketCard-price">
-          TWD <span id="ticketCard-price">${{ tour.price }}</span>
-        </p>
+      <div class="ticketCard-content">
+        <div>
+          <h3>
+            <a href="#" class="ticketCard-name">{{ tour.name }}</a>
+          </h3>
+          <p class="ticketCard-description">{{ tour.description }}</p>
+        </div>
+        <div class="ticketCard-info">
+          <p class="ticketCard-num">
+            <span><i class="fas fa-exclamation-circle"></i></span>
+            剩下最後 <span> {{ tour.group }} </span> 組
+          </p>
+          <p class="ticketCard-price">
+            TWD <span id="ticketCard-price">${{ tour.price }}</span>
+          </p>
+        </div>
       </div>
-    </div>
-  </li>
+    </li>
+  </ul>
 </template>
 
 <script>
 export default {
-  props: {
-    tour: {
-      type: Object,
-      required: true
+  data() {
+    return {
+      url: 'https://raw.githubusercontent.com/hexschool/js-training/main/travelAPI-lv1.json',
+      tourData: []
     }
+  },
+  methods: {
+    async getTourData() {
+      const res = await fetch(this.url)
+      this.tourData = await res.json()
+    }
+  },
+  mounted() {
+    this.getTourData()
   }
 }
 </script>
@@ -66,6 +77,22 @@ img {
   .ticketCard {
     width: 100%;
     margin: 0 5% 30px;
+  }
+}
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1280px;
+  justify-content: center;
+  margin: 0 auto;
+  list-style-type: none;
+}
+@media (max-width: 768px) {
+  ul {
+    flex-wrap: wrap;
+    padding: 0;
   }
 }
 

@@ -1,16 +1,16 @@
 <script>
-import TourWrapper from '../components/TourWrapper.vue'
+import TourCards from '../components/TourCards.vue'
 
 export default {
   components: {
-    TourWrapper
+    TourCards
   }
 }
 </script>
 
 <template>
   <h1>About Page</h1>
-  <TourWrapper />
+  <TourCards />
 </template>
 
 <style scoped>
